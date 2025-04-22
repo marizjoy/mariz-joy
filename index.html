@@ -62,31 +62,30 @@
     let cooldownActive = false;
 
     function login() {
-        if (cooldownActive) return;
+    if (cooldownActive) return;
 
-        let username = document.getElementById("username").value;
-        let password = document.getElementById("password").value;
-        let errorMessage = document.getElementById("errorMessage");
-        let loginBtn = document.getElementById("loginBtn");
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let errorMessage = document.getElementById("errorMessage");
+    let loginBtn = document.getElementById("loginBtn");
 
-        
-        let validUsername = "admin123";
-        let validPassword = "admin123";
+    let validUsername = "admin123";
+    let validPassword = "admin123";
 
-        if (username === validUsername && password === validPassword) {
-            window.location.href="Home.html";
-        } else {
-            errorMessage.textContent = "Invalid username or password. Please wait 10 seconds.";
-            loginBtn.disabled = true;
-            cooldownActive = true;
+    if (username === validUsername && password === validPassword) {
+        window.location.href = "Home.html";
+    } else {
+        errorMessage.textContent = "Invalid username or password. Please wait 10 seconds.";
+        loginBtn.disabled = true;
+        cooldownActive = true;
 
-            setTimeout(() => {
-                errorMessage.textContent = "";
-                loginBtn.disabled = false;
-                cooldownActive = false;
-            }, 10000); 
-        }
+        setTimeout(() => {
+            errorMessage.textContent = "";
+            loginBtn.disabled = false;
+            cooldownActive = false;
+        }, 10000);
     }
+}
 </script>
 
 </body>
